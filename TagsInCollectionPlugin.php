@@ -21,7 +21,7 @@ class TagsInCollectionPlugin extends Omeka_Plugin_AbstractPlugin
 
     public function hookTagsBrowseSql($args)
     {
-        if ($args['params']['collection']) {
+        if (!empty($args['params']['collection'])) {
             $args['select']->where('items.collection_id = ?', $args['params']['collection']);
         }
     }
